@@ -1,355 +1,408 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Chamada Piravivo</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Motivos Para Casar Com Você!</title>
+    <!-- Carrega o Tailwind CSS para estilização --><script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Parisienne&display=swap" rel="stylesheet">
     <style>
+        /* Define as fontes padrão e uma fonte script para títulos especiais */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            background-color: #fce7f3; /* Rosa bebê suave */
+            /* Fundo com padrão de corações */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9dbe6' fill-opacity='0.5' fill-rule='evenodd'%3E%3Cpath d='M0 60V0h60v60h-4V0H4v60H0zm0-4V0h4v56H0zm56 0V0h4v56h-4zM24 8h2v2h-2zm-6 0h2v2h-2zm-6 0h2v2h-2zM42 8h2v2h-2zm-6 0h2v2h-2zm-6 0h2v2h-2zm-6 0h2v2h-2zM0 8h2v2H0zm0-4h2v2H0zm0-4h2v2H0zm0-4h2v2H0zm4-4h2v2H4zm4-4h2v2H8zm4-4h2v2H12zM0 60h2v2H0zm0-4h2v2H0zm0-4h2v2H0zm0-4h2v2H0zm4-4h2v2H4zm4-4h2v2H8zm4-4h2v2H12zM60 60h2v2H60zm-4 0h2v2h-4zm-4 0h2v2h-4zM60 0h2v2H60zm-4 0h2v2h-4zm-4 0h2v2h-4zM24 56h2v2h-2zm-6 0h2v2h-2zm-6 0h2v2h-2zm-6 0h2v2h-2zM42 56h2v2h-2zm-6 0h2v2h-2zm-6 0h2v2h-2zm-6 0h2v2h-2z'/%3E%3Cpath d='M44.664 26.664L32 14 19.336 26.664 32 39.336z'/%3E%3Ccircle cx='32' cy='32' r='2' fill='%23f9dbe6'/%3E%3Cpath d='M32 12c-3.134 0-5.748 1.587-7.23 4.09l-2.433-2.433C24.08 10.354 27.97 8 32 8c4.03 0 7.92 2.354 11.663 5.657l-2.433 2.433C37.748 13.587 35.134 12 32 12z'/%3E%3Cpath d='M46 29c-3.134 0-5.748 1.587-7.23 4.09l-2.433-2.433C40.08 27.354 43.97 25 48 25c4.03 0 7.92 2.354 11.663 5.657l-2.433 2.433C51.748 30.587 49.134 29 46 29z'/%3E%3Cpath d='M18 29c-3.134 0-5.748 1.587-7.23 4.09l-2.433-2.433C12.08 27.354 15.97 25 20 25c4.03 0 7.92 2.354 11.663 5.657l-2.433 2.433C25.748 30.587 23.134 29 20 29z'/%3E%3Cpath d='M32 46c-3.134 0-5.748 1.587-7.23 4.09l-2.433-2.433C24.08 44.354 27.97 42 32 42c4.03 0 7.92 2.354 11.663 5.657l-2.433 2.433C37.748 47.587 35.134 46 32 46z'/%3E%3C/g%3E%3C/svg%3E");
         }
-        .status-button {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .card {
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4); /* Sombra rosa mais evidente */
+            background-color: #fff;
+            border: 1px solid #ffccd8; /* Borda sutil */
+        }
+        .text-pink-600 { /* Título principal */
+            color: #d82c6a; /* Um rosa mais vibrante */
+        }
+        .btn-primary {
+            transition: all 0.2s ease;
+            background-color: #f06292; /* Rosa médio mais romântico */
+            font-family: 'Parisienne', cursive; /* Fonte especial para o botão principal */
+            font-size: 1.5rem; /* Aumentar um pouco para a fonte script */
+        }
+        .btn-primary:hover {
+            background-color: #e91e63; /* Rosa mais escuro no hover */
+            transform: translateY(-2px) scale(1.02); /* Pequena animação no hover */
+            box-shadow: 0 8px 15px rgba(233, 30, 99, 0.3);
+        }
+        .list-reason {
+            border-left: 4px solid #ff80ab; /* Detalhe lateral rosa chiclete */
+            background-color: #fffafc; /* Fundo suave para os itens */
+            transition: all 0.3s ease;
+        }
+        .list-reason:hover {
+            background-color: #fff5f8; /* Fundo levemente mais claro no hover */
+            transform: translateX(3px); /* Pequeno movimento */
+        }
+        /* Ajuste para o texto dentro do input */
+        .p-3::placeholder {
+            color: #f48fb1; /* Cor rosa para o placeholder */
+            opacity: 0.8;
+        }
+        /* Estilos para o modal de proposta final */
+        .modal-content {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e6 100%); /* Gradiente suave */
+            border: 2px solid #ffccd8;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .modal-title-font { /* Para o título da proposta final */
+            font-family: 'Parisienne', cursive;
+            color: #e91e63;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        .modal-subtitle-font {
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
-            transition: all 0.2s;
+        }
+        .final-proposal-message { /* Mensagem principal da proposta */
+            font-family: 'Parisienne', cursive;
+            color: #d82c6a;
+            font-size: 2.8rem; /* Um pouco menor, mas ainda grande */
+            line-height: 1.2;
+            text-shadow: 1px 1px 4px rgba(233, 30, 99, 0.2);
+            animation: pulseText 2s infinite;
+        }
+        @keyframes pulseText {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.03); opacity: 0.95; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white rounded-2xl shadow-xl p-8 max-w-2xl w-full">
-        <header class="flex flex-col items-center mb-6 text-center">
-            <h1 class="text-4xl font-bold text-gray-800 mb-2">Piravivo</h1>
-            <p class="text-lg text-gray-600">Lista de Chamada</p>
-        </header>
+<body class="min-h-screen flex items-center justify-center p-4">
 
-        <!-- Seção para Adicionar Nomes -->
-        <section class="mb-6 border-b pb-6 border-gray-200">
-            <h2 class="text-xl font-semibold text-gray-700 mb-4">Adicionar Alunos</h2>
-            <div class="flex items-center space-x-2">
-                <input type="text" id="student-name-input" placeholder="Nome do aluno"
-                        class="flex-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all duration-200">
-                <button id="add-student-btn"
-                        class="p-3 bg-emerald-600 text-white rounded-xl shadow-md hover:bg-emerald-700 transition-colors duration-200 transform hover:scale-105 active:scale-100">
-                    Adicionar
+    <div id="appContainer" class="w-full max-w-lg card p-6 md:p-8 rounded-2xl">
+        <h1 class="text-3xl font-extrabold text-center text-pink-600 mb-6">
+            <span class="modal-title-font text-5xl">Meu Coração Te Convida!</span> 💖
+        </h1>
+
+        <!-- 1. Nome do Destinatário --><div class="mb-6">
+            <label for="partnerNameInput" class="block text-sm font-semibold text-gray-700 mb-2">
+                Para quem é todo esse amor?
+            </label>
+            <input type="text" id="partnerNameInput" placeholder="Nome da sua paixão..."
+                   class="w-full p-3 border border-pink-300 rounded-lg focus:ring-pink-500 focus:border-pink-500 transition duration-150"
+                   value="" oninput="updateProposalName()">
+        </div>
+
+        <!-- 2. Adicionar Motivo --><div class="mb-6 space-y-3">
+            <label for="reasonInput" class="block text-sm font-semibold text-gray-700">
+                Qual o motivo para viverem um "felizes para sempre"?
+            </label>
+            <div class="flex space-x-2">
+                <input type="text" id="reasonInput" placeholder="Ex: Seu sorriso ilumina meus dias."
+                       class="flex-grow p-3 border border-pink-300 rounded-lg focus:ring-pink-500 focus:border-pink-500 transition duration-150">
+                <button id="addReasonBtn" class="btn-primary text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-pink-300">
+                    <span class="font-inter">Adicionar</span>
                 </button>
             </div>
-            <div id="add-error-message" class="text-red-500 text-sm mt-2 hidden">Por favor, digite um nome.</div>
-        </section>
+            <p id="errorMsg" class="text-red-500 text-sm italic hidden">Ah, esqueceu de escrever o motivo! Digite algo especial. 🥰</p>
+        </div>
 
-        <!-- Seção Principal da Chamada -->
-        <section id="attendance-section" class="mb-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-semibold text-gray-700">Fazer a Chamada</h2>
-                <span id="current-date" class="text-gray-500 text-sm"></span>
+        <!-- 3. Lista de Motivos (Display) --><div class="mb-8">
+            <h2 class="text-xl font-bold text-pink-700 mb-3 border-b pb-1">
+                Suas razões do coração (<span id="reasonsCount">0</span>):
+            </h2>
+            <div id="reasonsList" class="space-y-3 max-h-64 overflow-y-auto pr-2">
+                <!-- Motivos serão inseridos aqui pelo JavaScript --><p id="emptyListMsg" class="text-gray-500 italic text-sm">Nenhum motivo ainda. Comece a encher de amor! 💖</p>
             </div>
-            
-            <ul id="student-list" class="space-y-3">
-                <!-- A lista de alunos e os botões de presença serão renderizados aqui -->
-            </ul>
-        </section>
-        
-        <!-- Seção de Resumo Semanal -->
-        <section id="weekly-summary-section" class="mb-6">
-            <h2 class="text-xl font-semibold text-gray-700 mb-4">Resumo Semanal</h2>
-            <div id="weekly-summary-list" class="space-y-2">
-                <!-- O resumo semanal será renderizado aqui -->
-            </div>
-        </section>
+        </div>
 
-        <footer class="mt-8 pt-6 border-t border-gray-200 flex justify-between items-center">
-            <button id="clear-data-btn"
-                    class="p-2 text-sm bg-red-100 text-red-600 rounded-xl hover:bg-red-200 transition-colors duration-200">
-                Limpar Todos os Dados
+        <!-- 4. Botão Final de Proposta --><button id="prepareProposalBtn" disabled
+                class="w-full btn-primary text-white font-extrabold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl disabled:bg-pink-300 disabled:cursor-not-allowed focus:outline-none focus:ring-4 focus:ring-pink-300">
+            <span class="font-inter">Gerar Proposta de Casamento!</span> ❤️
+        </button>
+
+    </div>
+
+    <!-- Modal da Proposta Final --><div id="proposalModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 hidden items-center justify-center p-4 z-50">
+        <div class="modal-content w-full max-w-2xl p-8 rounded-2xl shadow-2xl relative">
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
             </button>
-            <div id="clear-message" class="text-sm text-center font-semibold text-red-500 hidden">
-                Dados removidos com sucesso.
+            <div id="finalProposalContent" class="text-center">
+                <!-- Conteúdo final da proposta será inserido aqui --></div>
+            <div class="mt-8 flex justify-center">
+                <button onclick="copyProposalText()" class="bg-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-150 mr-4">
+                    Copiar Texto
+                </button>
+                <button onclick="shareProposal()" class="bg-indigo-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-600 transition duration-150">
+                    Compartilhar
+                </button>
             </div>
-        </footer>
+        </div>
     </div>
 
     <script>
-        const studentNameInput = document.getElementById('student-name-input');
-        const addStudentBtn = document.getElementById('add-student-btn');
-        const studentList = document.getElementById('student-list');
-        const clearDataBtn = document.getElementById('clear-data-btn');
-        const addErrorMessage = document.getElementById('add-error-message');
-        const clearMessage = document.getElementById('clear-message');
-        const currentDateSpan = document.getElementById('current-date');
-        const weeklySummaryList = document.getElementById('weekly-summary-list');
+        // Array para armazenar os motivos
+        let reasons = [];
+        let partnerName = "";
 
-        const STUDENTS_KEY = 'piravivo-students';
-        const ATTENDANCE_KEY = 'piravivo-attendance';
-        const WEEK_DAYS = [1, 2, 3, 4]; // Segunda(1), Terça(2), Quarta(3), Quinta(4)
+        // Chaves de localStorage para persistência
+        const STORAGE_REASONS_KEY = 'marriageReasons';
+        const STORAGE_NAME_KEY = 'partnerName';
 
-        // Função utilitária para obter a data de hoje no formato AAAA-MM-DD
-        function getTodayDate() {
-            return new Date().toISOString().split('T')[0];
-        }
+        // Referências aos elementos do DOM
+        const partnerNameInput = document.getElementById('partnerNameInput');
+        const reasonInput = document.getElementById('reasonInput');
+        const addReasonBtn = document.getElementById('addReasonBtn');
+        const reasonsList = document.getElementById('reasonsList');
+        const prepareProposalBtn = document.getElementById('prepareProposalBtn');
+        const proposalModal = document.getElementById('proposalModal');
+        const finalProposalContent = document.getElementById('finalProposalContent');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const reasonsCount = document.getElementById('reasonsCount');
+        const emptyListMsg = document.getElementById('emptyListMsg');
+        const errorMsg = document.getElementById('errorMsg');
 
-        // --- Funções de Carregamento e Salvamento ---
+        // --- Funções de Persistência (localStorage) ---
 
-        function loadStudents() {
+        // Função para salvar dados no localStorage
+        function saveData() {
             try {
-                const studentsData = localStorage.getItem(STUDENTS_KEY);
-                return studentsData ? JSON.parse(studentsData) : [];
+                localStorage.setItem(STORAGE_NAME_KEY, partnerNameInput.value.trim());
+                // Salvamos o array de motivos como uma string JSON
+                localStorage.setItem(STORAGE_REASONS_KEY, JSON.stringify(reasons));
             } catch (e) {
-                console.error("Erro ao carregar a lista de alunos:", e);
-                return [];
+                console.error("Erro ao salvar dados no localStorage:", e);
+                // Pode ocorrer se o navegador estiver em modo privado ou com armazenamento cheio
             }
         }
 
-        function saveStudents(students) {
+        // Função para carregar dados do localStorage
+        function loadData() {
             try {
-                localStorage.setItem(STUDENTS_KEY, JSON.stringify(students));
-            } catch (e) {
-                console.error("Erro ao salvar a lista de alunos:", e);
-            }
-        }
+                const storedName = localStorage.getItem(STORAGE_NAME_KEY);
+                const storedReasons = localStorage.getItem(STORAGE_REASONS_KEY);
 
-        function loadAttendance() {
-            try {
-                const attendanceData = localStorage.getItem(ATTENDANCE_KEY);
-                return attendanceData ? JSON.parse(attendanceData) : {};
-            } catch (e) {
-                console.error("Erro ao carregar os registros de presença:", e);
-                return {};
-            }
-        }
-
-        function saveAttendance(attendance) {
-            try {
-                localStorage.setItem(ATTENDANCE_KEY, JSON.stringify(attendance));
-            } catch (e) {
-                console.error("Erro ao salvar os registros de presença:", e);
-            }
-        }
-
-        // --- Funções de Renderização ---
-
-        function renderStudents() {
-            const students = loadStudents();
-            const attendance = loadAttendance();
-            const today = getTodayDate();
-
-            // Pega o registro de hoje ou um objeto vazio se não existir
-            const todayAttendance = attendance[today] || {};
-
-            studentList.innerHTML = '';
-            
-            // Renderiza cada aluno na lista
-            students.forEach(student => {
-                const status = todayAttendance[student] || ''; // 'P', 'F', 'A' ou ''
-                
-                const li = document.createElement('li');
-                li.className = 'flex items-center justify-between p-3 bg-gray-50 rounded-lg shadow-sm';
-                
-                // Novo container para nome e status, que ficará alinhado verticalmente
-                const nameAndStatusContainer = document.createElement('div');
-                nameAndStatusContainer.className = 'flex flex-col flex-1';
-
-                const nameSpan = document.createElement('span');
-                nameSpan.className = 'text-gray-800 font-medium';
-                nameSpan.textContent = student;
-                
-                // Elemento para exibir o status como uma palavra completa
-                const statusDisplay = document.createElement('span');
-                statusDisplay.className = `text-xs font-semibold mt-1`;
-                
-                // Define a palavra e a cor do indicador de status
-                switch (status) {
-                    case 'P':
-                        statusDisplay.textContent = 'Presença';
-                        statusDisplay.className += ' text-emerald-500';
-                        break;
-                    case 'F':
-                        statusDisplay.textContent = 'Falta';
-                        statusDisplay.className += ' text-red-500';
-                        break;
-                    case 'A':
-                        statusDisplay.textContent = 'Atestado';
-                        statusDisplay.className += ' text-gray-500';
-                        break;
-                    default:
-                        statusDisplay.textContent = ''; // Limpa o texto se o status não estiver definido
-                        break;
+                if (storedName) {
+                    partnerNameInput.value = storedName;
+                    partnerName = storedName;
                 }
 
-                nameAndStatusContainer.appendChild(nameSpan);
-                nameAndStatusContainer.appendChild(statusDisplay);
+                if (storedReasons) {
+                    // Convertemos a string JSON de volta para um array
+                    reasons = JSON.parse(storedReasons);
+                }
+            } catch (e) {
+                console.error("Erro ao carregar dados do localStorage:", e);
+                reasons = []; // Reseta se houver erro de parsing
+            }
+        }
 
-                const buttonContainer = document.createElement('div');
-                buttonContainer.className = 'flex space-x-2';
-                
-                // Botão de Presença
-                const presentBtn = createStatusButton('P', status === 'P' ? 'bg-emerald-500 text-white' : 'bg-white text-emerald-500 border border-emerald-500');
-                presentBtn.onclick = () => updateAttendance(student, 'P');
-                
-                // Botão de Falta
-                const absentBtn = createStatusButton('F', status === 'F' ? 'bg-red-500 text-white' : 'bg-white text-red-500 border border-red-500');
-                absentBtn.onclick = () => updateAttendance(student, 'F');
-                
-                // Botão de Atestado
-                const attestedBtn = createStatusButton('A', status === 'A' ? 'bg-gray-500 text-white' : 'bg-white text-gray-500 border border-gray-500');
-                attestedBtn.onclick = () => updateAttendance(student, 'A');
+        // --- Funções de Lógica da Aplicação ---
 
-                buttonContainer.appendChild(presentBtn);
-                buttonContainer.appendChild(absentBtn);
-                buttonContainer.appendChild(attestedBtn);
-                
-                li.appendChild(nameAndStatusContainer);
-                li.appendChild(buttonContainer);
-                studentList.appendChild(li);
+        // Função para atualizar o nome no título do botão
+        function updateProposalName() {
+            partnerName = partnerNameInput.value.trim();
+            const baseText = "Gerar Proposta de Casamento!";
+            if (partnerName) {
+                prepareProposalBtn.innerHTML = `<span class="font-inter">Gerar Proposta para ${partnerName}!</span> ❤️`;
+            } else {
+                prepareProposalBtn.innerHTML = `<span class="font-inter">${baseText}</span> ❤️`;
+            }
+            checkButtonState();
+            saveData(); // Salva o nome
+        }
+
+        // Função para verificar se o botão de gerar proposta deve estar ativo
+        function checkButtonState() {
+            if (reasons.length > 0 && partnerNameInput.value.trim()) {
+                prepareProposalBtn.disabled = false;
+            } else {
+                prepareProposalBtn.disabled = true;
+            }
+        }
+
+        // Função para adicionar um motivo à lista
+        function addReason() {
+            const reasonText = reasonInput.value.trim();
+            if (reasonText) {
+                reasons.push(reasonText);
+                reasonInput.value = ''; // Limpa o input
+                errorMsg.classList.add('hidden'); // Esconde a mensagem de erro
+                renderReasons(); // Atualiza a lista no DOM
+                saveData(); // Salva a nova lista
+            } else {
+                errorMsg.classList.remove('hidden'); // Mostra a mensagem de erro
+            }
+        }
+
+        // Função para remover um motivo
+        function removeReason(index) {
+            reasons.splice(index, 1);
+            renderReasons(); // Atualiza a lista no DOM
+            saveData(); // Salva a lista atualizada
+        }
+
+        // Função para renderizar a lista de motivos no DOM
+        function renderReasons() {
+            reasonsList.innerHTML = ''; // Limpa o conteúdo atual
+
+            if (reasons.length === 0) {
+                emptyListMsg.classList.remove('hidden');
+            } else {
+                emptyListMsg.classList.add('hidden');
+                reasons.forEach((reason, index) => {
+                    const li = document.createElement('div');
+                    li.className = 'list-reason flex items-center justify-between p-3 rounded-lg bg-white shadow-sm';
+                    li.innerHTML = `
+                        <span class="text-gray-800 text-sm flex-1 mr-4">${index + 1}. ${reason}</span>
+                        <button onclick="removeReason(${index})" class="text-red-500 hover:text-red-700 focus:outline-none transition duration-150" aria-label="Remover motivo">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    `;
+                    reasonsList.appendChild(li);
+                });
+            }
+
+            reasonsCount.textContent = reasons.length;
+            checkButtonState();
+        }
+
+        // Função para gerar e exibir a proposta final
+        function generateProposal() {
+            if (reasons.length === 0 || !partnerName) {
+                return; // Não faz nada se a lista estiver vazia ou o nome estiver em branco
+            }
+
+            // Gera o conteúdo HTML da proposta
+            let reasonsHtml = reasons.map((reason, index) => `
+                <li class="text-lg mb-3 leading-relaxed text-gray-700">
+                    <span class="font-bold text-pink-600 mr-2">${index + 1}.</span> ${reason}
+                </li>
+            `).join('');
+
+            const finalHtml = `
+                <div class="text-center p-4">
+                    <h2 class="text-4xl font-extrabold mb-4 modal-title-font">
+                        Para o meu amor, ${partnerName}!
+                    </h2>
+                    <p class="text-2xl font-medium text-gray-800 mb-6 modal-subtitle-font">
+                        Com todo o meu coração, listei alguns dos infinitos motivos pelos quais quero passar a vida inteira ao seu lado:
+                    </p>
+                    <div class="text-left max-w-md mx-auto my-6 p-6 bg-pink-50 rounded-xl border border-pink-200">
+                        <ol class="list-none p-0 m-0">
+                            ${reasonsHtml}
+                        </ol>
+                    </div>
+                    <p class="final-proposal-message mt-8 mb-6">
+                        Você aceita se casar comigo e tornar cada dia um "sim"?
+                    </p>
+                    <p class="text-sm text-gray-500 italic">
+                        (Este site é só uma brincadeira, mas a proposta... ah, a proposta é a mais pura verdade do meu coração! ❤️)
+                    </p>
+                </div>
+            `;
+
+            finalProposalContent.innerHTML = finalHtml;
+            proposalModal.classList.remove('hidden');
+            proposalModal.classList.add('flex'); // Mostra o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            proposalModal.classList.add('hidden');
+            proposalModal.classList.remove('flex');
+        }
+
+        // Função para copiar o texto da proposta (apenas o texto limpo)
+        function copyProposalText() {
+            const partner = partnerName.toUpperCase();
+            let textToCopy = `PARA VOCÊ, ${partner}!\n\nCom todo o meu coração, listei alguns dos infinitos motivos pelos quais quero passar a vida inteira ao seu lado:\n\n`;
+
+            reasons.forEach((reason, index) => {
+                textToCopy += `${index + 1}. ${reason}\n`;
             });
 
-            // Chama a renderização do resumo semanal após a renderização da lista diária
-            renderWeeklySummary();
-        }
+            textToCopy += `\nVocê aceita se casar comigo e tornar cada dia um "sim"?\n\n(Esta é a sua lista especial de motivos!)`;
 
-        // Função auxiliar para criar botões de status
-        function createStatusButton(text, className) {
-            const btn = document.createElement('button');
-            btn.textContent = text;
-            btn.className = `status-button rounded-full ${className} hover:scale-105 transform`;
-            return btn;
-        }
-
-        // --- Funções de Lógica ---
-
-        // Adiciona um novo aluno à lista
-        function addStudent() {
-            const name = studentNameInput.value.trim();
-            if (name === '') {
-                addErrorMessage.classList.remove('hidden');
-                studentNameInput.focus();
-                return;
-            }
-            addErrorMessage.classList.add('hidden');
-
-            const students = loadStudents();
-            if (!students.includes(name)) {
-                students.push(name);
-                saveStudents(students);
-                renderStudents();
-            }
-            studentNameInput.value = '';
-        }
-        
-        // Atualiza o registro de presença de um aluno
-        function updateAttendance(studentName, status) {
-            const attendance = loadAttendance();
-            const today = getTodayDate();
+            // Usa o método antigo (mais compatível em iframes)
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy;
+            document.body.appendChild(textArea);
+            textArea.select();
             
-            // Inicializa o registro do dia se ele não existir
-            if (!attendance[today]) {
-                attendance[today] = {};
+            try {
+                document.execCommand('copy');
+                // Substituir o alerta por uma mensagem na tela (toast)
+                showToast("Texto da proposta copiado para a área de transferência!");
+            } catch (err) {
+                console.error('Falha ao copiar:', err);
+                showToast("Erro ao copiar o texto. Tente manualmente.");
             }
-
-            // Atualiza o status do aluno no dia de hoje
-            attendance[today][studentName] = status;
-            saveAttendance(attendance);
-            renderStudents(); // Re-renderiza a lista para atualizar os botões
+            document.body.removeChild(textArea);
         }
 
-        // Limpa todos os dados salvos no localStorage
-        function clearAllData() {
-            localStorage.removeItem(STUDENTS_KEY);
-            localStorage.removeItem(ATTENDANCE_KEY);
-            renderStudents();
-            clearMessage.classList.remove('hidden');
+        // Função para simular o compartilhamento (abre o texto em uma nova aba para facilitar a cópia em mobile)
+        function shareProposal() {
+            const partner = partnerName.toUpperCase();
+            let textToShare = `PARA VOCÊ, ${partner}!\n\nCom todo o meu coração, listei alguns dos infinitos motivos pelos quais quero passar a vida inteira ao seu lado:\n\n`;
+
+            reasons.forEach((reason, index) => {
+                textToShare += `${index + 1}. ${reason}\n`;
+            });
+
+            textToShare += `\nVocê aceita se casar comigo e tornar cada dia um "sim"? ❤️`;
+
+            const shareUrl = 'data:text/plain;charset=utf-8,' + encodeURIComponent(textToShare);
+            window.open(shareUrl, '_blank');
+        }
+
+        // Simulação de um Toast/Mensagem
+        function showToast(message) {
+            let toast = document.getElementById('toast-message');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'toast-message';
+                toast.className = 'fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-xl shadow-lg transition-opacity duration-300 opacity-0 z-50';
+                document.body.appendChild(toast);
+            }
+            
+            toast.textContent = message;
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+
             setTimeout(() => {
-                clearMessage.classList.add('hidden');
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
             }, 3000);
         }
 
-        // --- Lógica e Renderização do Resumo Semanal ---
+        // Adiciona os event listeners
+        addReasonBtn.addEventListener('click', addReason);
+        prepareProposalBtn.addEventListener('click', generateProposal);
+        closeModalBtn.addEventListener('click', closeModal);
 
-        function calculateWeeklySummary() {
-            const students = loadStudents();
-            const attendanceData = loadAttendance();
-            const today = new Date();
-            const weeklySummary = {};
-
-            // Encontra as datas de segunda, terça, quarta e quinta da semana atual
-            const weekDates = [];
-            const firstDayOfWeek = today.getDate() - today.getDay() + (today.getDay() === 0 ? -6 : 1); // Pega a segunda-feira da semana
-            for (let i = 0; i < 4; i++) {
-                const day = new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek + i);
-                weekDates.push(day.toISOString().split('T')[0]);
-            }
-            
-            const totalLetiveDays = 4;
-
-            // Calcula a porcentagem de presença para cada aluno
-            students.forEach(student => {
-                let attendedDays = 0;
-                
-                weekDates.forEach(date => {
-                    const dailyAttendance = attendanceData[date] || {};
-                    if (dailyAttendance[student] === 'P') {
-                        attendedDays++;
-                    }
-                });
-                
-                const percentage = (attendedDays / totalLetiveDays) * 100;
-                weeklySummary[student] = percentage.toFixed(0); // Arredonda para o número inteiro mais próximo
-            });
-
-            return weeklySummary;
-        }
-
-        function renderWeeklySummary() {
-            const summary = calculateWeeklySummary();
-            weeklySummaryList.innerHTML = '';
-
-            const students = loadStudents();
-            if (students.length === 0) {
-                weeklySummaryList.innerHTML = '<p class="text-sm text-gray-500">Adicione alunos para ver o resumo semanal.</p>';
-                return;
-            }
-
-            for (const student in summary) {
-                const percentage = summary[student];
-                const item = document.createElement('div');
-                item.className = 'flex justify-between items-center bg-gray-100 p-3 rounded-xl';
-                item.innerHTML = `
-                    <span class="font-semibold text-gray-700">${student}</span>
-                    <span class="text-lg font-bold ${percentage >= 75 ? 'text-emerald-500' : (percentage > 50 ? 'text-yellow-500' : 'text-red-500')}">
-                        ${percentage}%
-                    </span>
-                `;
-                weeklySummaryList.appendChild(item);
-            }
-        }
-
-        // --- Event Listeners e Inicialização ---
-        
-        addStudentBtn.addEventListener('click', addStudent);
-        studentNameInput.addEventListener('keydown', (e) => {
+        // Permite adicionar motivo pressionando Enter no campo de motivo
+        reasonInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                addStudent();
+                addReason();
             }
         });
-        clearDataBtn.addEventListener('click', clearAllData);
 
+        // Atualiza o nome ao carregar e a cada input
         window.onload = () => {
-            const todayFormatted = new Date().toLocaleDateString('pt-BR', {
-                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-            });
-            currentDateSpan.textContent = todayFormatted;
-            renderStudents();
+            loadData(); // Agora carrega os dados salvos primeiro
+            updateProposalName();
+            renderReasons(); // Renderiza a lista carregada
         };
-
     </script>
 </body>
 </html>
