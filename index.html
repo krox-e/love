@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motivos Para Casar Com Você!</title>
-    <!-- Carrega o Tailwind CSS para estilização --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Carrega Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carrega fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Parisienne&display=swap" rel="stylesheet">
     <style>
         /* Define as fontes padrão e uma fonte script para títulos especiais */
@@ -62,14 +65,30 @@
             font-family: 'Inter', sans-serif;
             font-weight: 600;
         }
-        .final-proposal-message { /* Mensagem principal da proposta */
+        .final-proposal-message {
             font-family: 'Parisienne', cursive;
             color: #d82c6a;
-            font-size: 2.8rem; /* Um pouco menor, mas ainda grande */
+            /* Usaremos classes responsivas para o tamanho do texto aqui */
             line-height: 1.2;
             text-shadow: 1px 1px 4px rgba(233, 30, 99, 0.2);
             animation: pulseText 2s infinite;
         }
+        
+        /* Estilos para a mensagem final, ajustando o tamanho responsivamente */
+        .final-proposal-message-size {
+            font-size: 2rem; /* Mobile */
+        }
+        @media (min-width: 640px) {
+            .final-proposal-message-size {
+                font-size: 2.5rem; /* Tablet/Pequeno Desktop */
+            }
+        }
+        @media (min-width: 768px) {
+            .final-proposal-message-size {
+                font-size: 3rem; /* Desktop */
+            }
+        }
+
         @keyframes pulseText {
             0% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.03); opacity: 0.95; }
@@ -84,11 +103,13 @@
 <body class="min-h-screen flex items-center justify-center p-4">
 
     <div id="appContainer" class="w-full max-w-lg card p-6 md:p-8 rounded-2xl">
-        <h1 class="text-3xl font-extrabold text-center text-pink-600 mb-6">
-            <span class="modal-title-font text-5xl">Meu Coração Te Convida!</span> 💖
+        <!-- Título Principal Responsivo -->
+        <h1 class="text-3xl md:text-4xl font-extrabold text-center text-pink-600 mb-6">
+            <span class="modal-title-font text-5xl md:text-6xl">Meu Coração Te Convida!</span> 💖
         </h1>
 
-        <!-- 1. Nome do Destinatário --><div class="mb-6">
+        <!-- Campo de Nome do Parceiro -->
+        <div class="mb-6">
             <label for="partnerNameInput" class="block text-sm font-semibold text-gray-700 mb-2">
                 Para quem é todo esse amor?
             </label>
@@ -97,50 +118,59 @@
                    value="" oninput="updateProposalName()">
         </div>
 
-        <!-- 2. Adicionar Motivo --><div class="mb-6 space-y-3">
+        <!-- Adicionar Motivo (Layout Responsivo) -->
+        <div class="mb-6 space-y-3">
             <label for="reasonInput" class="block text-sm font-semibold text-gray-700">
                 Qual o motivo para viverem um "felizes para sempre"?
             </label>
-            <div class="flex space-x-2">
+            <!-- Flex Container: Coluna no mobile (space-y-2), Linha no sm/desktop (sm:flex-row sm:space-x-2) -->
+            <div class="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
                 <input type="text" id="reasonInput" placeholder="Ex: Seu sorriso ilumina meus dias."
-                       class="flex-grow p-3 border border-pink-300 rounded-lg focus:ring-pink-500 focus:border-pink-500 transition duration-150">
-                <button id="addReasonBtn" class="btn-primary text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-pink-300">
+                       class="flex-grow w-full p-3 border border-pink-300 rounded-lg focus:ring-pink-500 focus:border-pink-500 transition duration-150">
+                <button id="addReasonBtn" class="w-full sm:w-auto btn-primary text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-pink-300">
                     <span class="font-inter">Adicionar</span>
                 </button>
             </div>
             <p id="errorMsg" class="text-red-500 text-sm italic hidden">Ah, esqueceu de escrever o motivo! Digite algo especial. 🥰</p>
         </div>
 
-        <!-- 3. Lista de Motivos (Display) --><div class="mb-8">
+        <!-- Lista de Motivos -->
+        <div class="mb-8">
             <h2 class="text-xl font-bold text-pink-700 mb-3 border-b pb-1">
                 Suas razões do coração (<span id="reasonsCount">0</span>):
             </h2>
-            <div id="reasonsList" class="space-y-3 max-h-64 overflow-y-auto pr-2">
-                <!-- Motivos serão inseridos aqui pelo JavaScript --><p id="emptyListMsg" class="text-gray-500 italic text-sm">Nenhum motivo ainda. Comece a encher de amor! 💖</p>
+            <!-- Altura máxima ajustada para caber bem em telas menores, mas com scroll -->
+            <div id="reasonsList" class="space-y-3 max-h-52 md:max-h-64 overflow-y-auto pr-2">
+                <p id="emptyListMsg" class="text-gray-500 italic text-sm">Nenhum motivo ainda. Comece a encher de amor! 💖</p>
             </div>
         </div>
 
-        <!-- 4. Botão Final de Proposta --><button id="prepareProposalBtn" disabled
+        <!-- Botão de Gerar Proposta -->
+        <button id="prepareProposalBtn" disabled
                 class="w-full btn-primary text-white font-extrabold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl disabled:bg-pink-300 disabled:cursor-not-allowed focus:outline-none focus:ring-4 focus:ring-pink-300">
             <span class="font-inter">Gerar Proposta de Casamento!</span> ❤️
         </button>
 
     </div>
 
-    <!-- Modal da Proposta Final --><div id="proposalModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 hidden items-center justify-center p-4 z-50">
-        <div class="modal-content w-full max-w-2xl p-8 rounded-2xl shadow-2xl relative">
+    <!-- Modal da Proposta Final (Sempre ocupará a tela inteira, mas o conteúdo é centralizado) -->
+    <div id="proposalModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 hidden items-center justify-center p-4 z-50">
+        <!-- Conteúdo do Modal Responsivo -->
+        <div class="modal-content w-full max-w-lg md:max-w-2xl p-6 md:p-8 rounded-2xl shadow-2xl relative mx-4">
             <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition duration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
             <div id="finalProposalContent" class="text-center">
-                <!-- Conteúdo final da proposta será inserido aqui --></div>
-            <div class="mt-8 flex justify-center">
-                <button onclick="copyProposalText()" class="bg-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-150 mr-4">
+                <!-- Conteúdo gerado via JS -->
+            </div>
+            <!-- Botões de Ação do Modal -->
+            <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+                <button onclick="copyProposalText()" class="bg-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-150 w-full sm:w-auto">
                     Copiar Texto
                 </button>
-                <button onclick="shareProposal()" class="bg-indigo-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-600 transition duration-150">
+                <button onclick="shareProposal()" class="bg-indigo-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-600 transition duration-150 w-full sm:w-auto">
                     Compartilhar
                 </button>
             </div>
@@ -179,7 +209,6 @@
                 localStorage.setItem(STORAGE_REASONS_KEY, JSON.stringify(reasons));
             } catch (e) {
                 console.error("Erro ao salvar dados no localStorage:", e);
-                // Pode ocorrer se o navegador estiver em modo privado ou com armazenamento cheio
             }
         }
 
@@ -284,28 +313,31 @@
 
             // Gera o conteúdo HTML da proposta
             let reasonsHtml = reasons.map((reason, index) => `
-                <li class="text-lg mb-3 leading-relaxed text-gray-700">
+                <li class="text-base md:text-lg mb-3 leading-relaxed text-gray-700">
                     <span class="font-bold text-pink-600 mr-2">${index + 1}.</span> ${reason}
                 </li>
             `).join('');
 
             const finalHtml = `
-                <div class="text-center p-4">
-                    <h2 class="text-4xl font-extrabold mb-4 modal-title-font">
+                <div class="text-center p-2 md:p-4">
+                    <!-- Título Responsivo: text-3xl no mobile, text-4xl no desktop -->
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 modal-title-font">
                         Para o meu amor, ${partnerName}!
                     </h2>
-                    <p class="text-2xl font-medium text-gray-800 mb-6 modal-subtitle-font">
+                    <!-- Subtítulo Responsivo: text-xl no mobile, text-2xl no desktop -->
+                    <p class="text-xl md:text-2xl font-medium text-gray-800 mb-6 modal-subtitle-font">
                         Com todo o meu coração, listei alguns dos infinitos motivos pelos quais quero passar a vida inteira ao seu lado:
                     </p>
-                    <div class="text-left max-w-md mx-auto my-6 p-6 bg-pink-50 rounded-xl border border-pink-200">
+                    <div class="text-left max-w-sm sm:max-w-md mx-auto my-6 p-4 md:p-6 bg-pink-50 rounded-xl border border-pink-200">
                         <ol class="list-none p-0 m-0">
                             ${reasonsHtml}
                         </ol>
                     </div>
-                    <p class="final-proposal-message mt-8 mb-6">
+                    <!-- Mensagem Principal com classe de tamanho responsivo (CSS) -->
+                    <p class="final-proposal-message final-proposal-message-size mt-8 mb-6">
                         Você aceita se casar comigo e tornar cada dia um "sim"?
                     </p>
-                    <p class="text-sm text-gray-500 italic">
+                    <p class="text-xs text-gray-500 italic">
                         (Este site é só uma brincadeira, mas a proposta... ah, a proposta é a mais pura verdade do meu coração! ❤️)
                     </p>
                 </div>
@@ -393,6 +425,7 @@
         // Permite adicionar motivo pressionando Enter no campo de motivo
         reasonInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
+                e.preventDefault(); // Previne o envio de formulário padrão (caso estivesse em um form)
                 addReason();
             }
         });
