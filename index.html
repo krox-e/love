@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motivos Para Casar Com Você! 💖</title>
     
-    <!-- FAVICON (LOGO) - Aqui é onde o ícone da aba será definido --><!-- Usaremos um SVG embutido para a logo, para garantir alta qualidade em qualquer tamanho --><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Coração --%3E%3Cpath fill='%23E91E63' d='M50,15 C30,0 0,20 0,40 C0,65 20,80 50,95 C80,80 100,65 100,40 C100,20 70,0 50,15 Z'%3E%3C/path%3E%3C!-- Anel de noivado --%3E%3Ccircle cx='70' cy='30' r='10' fill='%23FFEB3B'%3E%3C/circle%3E%3Cpath fill='%23FFFDE7' d='M70,25 L75,30 L70,35 L65,30 Z'%3E%3C/path%3E%3C/svg%3E">
+    <!-- NOVO FAVICON: SVG inline (data URI) com codificação otimizada e dupla declaração para forçar o carregamento -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpath%20fill%3D%27%23E91E63%27%20d%3D%27M50%2C15%20C30%2C0%200%2C20%200%2C40%20C0%2C65%2020%2C80%2050%2C95%20C80%2C80%20100%2C65%20100%2C40%20C100%2C20%2070%2C0%2050%2C15%20Z%27%3E%3C%2Fpath%3E%3Ccircle%20cx%3D%2770%27%20cy%3D%2730%27%20r%3D%2710%27%20fill%3D%27%23FFEB3B%27%3E%3C%2Fcircle%3E%3Cpath%20fill%3D%27%23FFFDE7%27%20d%3D%27M70%2C25%20L75%2C30%20L70%2C35%20L65%2C30%20Z%27%3E%3C%2Fpath%3E%3C%2Fsvg%3E">
+    <link rel="shortcut icon" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpath%20fill%3D%27%23E91E63%27%20d%3D%27M50%2C15%20C30%2C0%200%2C20%200%2C40%20C0%2C65%2020%2C80%2050%2C95%20C80%2C80%20100%2C65%20100%2C40%20C100%2C20%2070%2C0%2050%2C15%20Z%27%3E%3C%2Fpath%3E%3Ccircle%20cx%3D%2770%27%20cy%3D%2730%27%20r%3D%2710%27%20fill%3D%27%23FFEB3B%27%3E%3C%2Fcircle%3E%3Cpath%20fill%3D%27%23FFFDE7%27%20d%3D%27M70%2C25%20L75%2C30%20L70%2C35%20L65%2C30%20Z%27%3E%3C%2Fpath%3E%3C%2Fsvg%3E">
     
-    <!-- Carrega Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carrega fontes --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Parisienne&display=swap" rel="stylesheet">
+    <!-- Carrega Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carrega fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Parisienne&display=swap" rel="stylesheet">
     <style>
         /* Define as fontes padrão e uma fonte script para títulos especiais */
         body {
@@ -103,11 +107,13 @@
 <body class="min-h-screen flex items-center justify-center p-4">
 
     <div id="appContainer" class="w-full max-w-lg card p-6 md:p-8 rounded-2xl">
-        <!-- Título Principal Responsivo --><h1 class="text-3xl md:text-4xl font-extrabold text-center text-pink-600 mb-6">
+        <!-- Título Principal Responsivo -->
+        <h1 class="text-3xl md:text-4xl font-extrabold text-center text-pink-600 mb-6">
             <span class="modal-title-font text-5xl md:text-6xl">Meu Coração Te Convida!</span> 💖
         </h1>
 
-        <!-- Campo de Nome do Parceiro --><div class="mb-6">
+        <!-- Campo de Nome do Parceiro -->
+        <div class="mb-6">
             <label for="partnerNameInput" class="block text-sm font-semibold text-gray-700 mb-2">
                 Para quem é todo esse amor?
             </label>
@@ -116,11 +122,13 @@
                    value="" oninput="updateProposalName()">
         </div>
 
-        <!-- Adicionar Motivo (Layout Responsivo) --><div class="mb-6 space-y-3">
+        <!-- Adicionar Motivo (Layout Responsivo) -->
+        <div class="mb-6 space-y-3">
             <label for="reasonInput" class="block text-sm font-semibold text-gray-700">
                 Qual o motivo para viverem um "felizes para sempre"?
             </label>
-            <!-- Flex Container: Coluna no mobile (space-y-2), Linha no sm/desktop (sm:flex-row sm:space-x-2) --><div class="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
+            <!-- Flex Container: Coluna no mobile (space-y-2), Linha no sm/desktop (sm:flex-row sm:space-x-2) -->
+            <div class="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
                 <input type="text" id="reasonInput" placeholder="Ex: Seu sorriso ilumina meus dias."
                        class="flex-grow w-full p-3 border border-pink-300 rounded-lg focus:ring-pink-500 focus:border-pink-500 transition duration-150">
                 <button id="addReasonBtn" class="w-full sm:w-auto btn-primary text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-pink-300">
@@ -130,32 +138,39 @@
             <p id="errorMsg" class="text-red-500 text-sm italic hidden">Ah, esqueceu de escrever o motivo! Digite algo especial. 🥰</p>
         </div>
 
-        <!-- Lista de Motivos --><div class="mb-8">
+        <!-- Lista de Motivos -->
+        <div class="mb-8">
             <h2 class="text-xl font-bold text-pink-700 mb-3 border-b pb-1">
                 Suas razões do coração (<span id="reasonsCount">0</span>):
             </h2>
-            <!-- Altura máxima ajustada para caber bem em telas menores, mas com scroll --><div id="reasonsList" class="space-y-3 max-h-52 md:max-h-64 overflow-y-auto pr-2">
+            <!-- Altura máxima ajustada para caber bem em telas menores, mas com scroll -->
+            <div id="reasonsList" class="space-y-3 max-h-52 md:max-h-64 overflow-y-auto pr-2">
                 <p id="emptyListMsg" class="text-gray-500 italic text-sm">Nenhum motivo ainda. Comece a encher de amor! 💖</p>
             </div>
         </div>
 
-        <!-- Botão de Gerar Proposta --><button id="prepareProposalBtn" disabled
+        <!-- Botão de Gerar Proposta -->
+        <button id="prepareProposalBtn" disabled
                 class="w-full btn-primary text-white font-extrabold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl disabled:bg-pink-300 disabled:cursor-not-allowed focus:outline-none focus:ring-4 focus:ring-pink-300">
             <span class="font-inter">Gerar Proposta de Casamento!</span> ❤️
         </button>
 
     </div>
 
-    <!-- Modal da Proposta Final (Sempre ocupará a tela inteira, mas o conteúdo é centralizado) --><div id="proposalModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 hidden items-center justify-center p-4 z-50">
-        <!-- Conteúdo do Modal Responsivo --><div class="modal-content w-full max-w-lg md:max-w-2xl p-6 md:p-8 rounded-2xl shadow-2xl relative mx-4">
+    <!-- Modal da Proposta Final (Sempre ocupará a tela inteira, mas o conteúdo é centralizado) -->
+    <div id="proposalModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 hidden items-center justify-center p-4 z-50">
+        <!-- Conteúdo do Modal Responsivo -->
+        <div class="modal-content w-full max-w-lg md:max-w-2xl p-6 md:p-8 rounded-2xl shadow-2xl relative mx-4">
             <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition duration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
             <div id="finalProposalContent" class="text-center">
-                <!-- Conteúdo gerado via JS --></div>
-            <!-- Botões de Ação do Modal --><div class="mt-8 flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+                <!-- Conteúdo gerado via JS -->
+            </div>
+            <!-- Botões de Ação do Modal -->
+            <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
                 <button onclick="copyProposalText()" class="bg-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-150 w-full sm:w-auto">
                     Copiar Texto
                 </button>
@@ -309,10 +324,12 @@
 
             const finalHtml = `
                 <div class="text-center p-2 md:p-4">
-                    <!-- Título Responsivo: text-3xl no mobile, text-4xl no desktop --><h2 class="text-3xl md:text-4xl font-extrabold mb-4 modal-title-font">
+                    <!-- Título Responsivo: text-3xl no mobile, text-4xl no desktop -->
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 modal-title-font">
                         Para o meu amor, ${partnerName}!
                     </h2>
-                    <!-- Subtítulo Responsivo: text-xl no mobile, text-2xl no desktop --><p class="text-xl md:text-2xl font-medium text-gray-800 mb-6 modal-subtitle-font">
+                    <!-- Subtítulo Responsivo: text-xl no mobile, text-2xl no desktop -->
+                    <p class="text-xl md:text-2xl font-medium text-gray-800 mb-6 modal-subtitle-font">
                         Com todo o meu coração, listei alguns dos infinitos motivos pelos quais quero passar a vida inteira ao seu lado:
                     </p>
                     <div class="text-left max-w-sm sm:max-w-md mx-auto my-6 p-4 md:p-6 bg-pink-50 rounded-xl border border-pink-200">
@@ -320,7 +337,8 @@
                             ${reasonsHtml}
                         </ol>
                     </div>
-                    <!-- Mensagem Principal com classe de tamanho responsivo (CSS) --><p class="final-proposal-message final-proposal-message-size mt-8 mb-6">
+                    <!-- Mensagem Principal com classe de tamanho responsivo (CSS) -->
+                    <p class="final-proposal-message final-proposal-message-size mt-8 mb-6">
                         Você aceita se casar comigo e tornar cada dia um "sim"?
                     </p>
                     <p class="text-xs text-gray-500 italic">
